@@ -5,9 +5,11 @@ const inisialState = {
 const reducer = (state = inisialState, action) => {
     switch (action.type) {
         case 'ADD_ANSWER':
+            const {answer} = action.answer;
+            answers[q + answer['q']] = answer['a']
             return {
                 ...state,
-                answers: [1,2,3]
+                answers: answers
             }
         case 'CLEAR_ANSWER':
             return {

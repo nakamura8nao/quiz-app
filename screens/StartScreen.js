@@ -20,7 +20,7 @@ export default function StartScreen(props) {
       <Text>エンジニアがよく出会う英語クイズ！</Text>
       <TouchableOpacity
         onPress={() => {
-            props.navigation.navigate('Question');
+            props.navigation.navigate('Question', {q: 1});
           }}>
         <Text>はじめる</Text>
       </TouchableOpacity>
