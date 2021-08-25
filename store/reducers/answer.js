@@ -1,5 +1,5 @@
 const inisialState = {
-    answers: []
+    answers: {'q1': '', 'q2': '', 'q3': ''}
 }
 
 const reducer = (state = inisialState, action) => {
@@ -8,6 +8,11 @@ const reducer = (state = inisialState, action) => {
             return {
                 ...state,
                 answers: [1,2,3]
+            }
+        case 'CLEAR_ANSWER':
+            return {
+                ...state,
+                answers: {'q1': '', 'q2': '', 'q3': ''}
             }
         default:
             return state;

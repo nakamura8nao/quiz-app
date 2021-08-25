@@ -4,3 +4,9 @@ export const addAnswer = ({answer}) => {
         answer,
     };
 };
+
+export const clearAnswer = () => {
+    return {
+        type: 'CLEAR_ANSWER',
+    };
+};
