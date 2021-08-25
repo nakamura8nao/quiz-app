@@ -1,20 +1,23 @@
 const inisialState = {
-    answers: {'q1': '', 'q2': '', 'q3': ''}
+    answers: []
 }
 
 const reducer = (state = inisialState, action) => {
     switch (action.type) {
         case 'ADD_ANSWER':
-            const {answer} = action.answer;
-            answers[q + answer['q']] = answer['a']
+
+            const answerList = state['answers'].slice();
+            const answer = Object.assign({}, action['answer']);
+            answerList.push(answer);
+
+            console.log(answerList);
+
             return {
-                ...state,
-                answers: answers
+                answers: answerList
             }
         case 'CLEAR_ANSWER':
             return {
-                ...state,
-                answers: {'q1': '', 'q2': '', 'q3': ''}
+                answers: []
             }
         default:
             return state;

@@ -17,7 +17,7 @@ export default function StartScreen(props) {
   dispatch((clearAnswer()));
   return (
     <View style={styles.container}>
-      <Text>エンジニアがよく出会う英語クイズ！</Text>
+      <Text>エンジニア英語クイズ！</Text>
       <TouchableOpacity
         onPress={() => {
             props.navigation.navigate('Question', {q: 1});

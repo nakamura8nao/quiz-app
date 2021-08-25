@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import { useDispatch } from 'react-redux';
 import {addAnswer} from '../store/actions/answer';
+import quizData from '../data/quiz';
 
 const styles = StyleSheet.create({
     container: {
@@ -15,32 +16,32 @@ const styles = StyleSheet.create({
 export default function QuestionScreen(props) {
   const dispatch = useDispatch();
   const {params} = props.route;
-  const {q} = params['q'];
 
   return (
     <View style={styles.container}>
-    {/* <Text>{params.q}</Text> */}
-      <Text>質問{q}</Text>
+      <Text>{params['q']}問目！</Text>
+      <Text>{quizData[params['q'] - 1]['question']}</Text>
+      <Text>例文：{quizData[params['q'] - 1]['ex']}</Text>
       <TouchableOpacity
         onPress={() => {
-            dispatch((addAnswer({q: q, a: 1})));
-            props.navigation.navigate('Answer', {'q': q});
+            dispatch((addAnswer({answer: {'q': params['q'], a: 1}} )));
+            props.navigation.navigate('Answer', {'q': params['q']});
           }}>
-        <Text>答え1</Text>
+        <Text>{quizData[params['q'] - 1]['answer1']}</Text>
       </TouchableOpacity>
       <TouchableOpacity
         onPress={() => {
-            dispatch((addAnswer({q: q, a: 2})));
-            props.navigation.navigate('Answer', {'q': q});
+            dispatch((addAnswer({answer: {'q': params['q'], a: 2}} )));
+            props.navigation.navigate('Answer', {'q': params['q']});
           }}>
-        <Text>答え2</Text>
+        <Text>{quizData[params['q'] - 1]['answer2']}</Text>
       </TouchableOpacity>
       <TouchableOpacity
         onPress={() => {
-            dispatch((addAnswer({q: q, a: 3})));
-            props.navigation.navigate('Answer', {'q': q});
+            dispatch((addAnswer({answer: {'q': params['q'], a: 3}} )));
+            props.navigation.navigate('Answer', {'q': params['q']});
           }}>
-        <Text>答え3</Text>
+        <Text>{quizData[params['q'] - 1]['answer3']}</Text>
       </TouchableOpacity>
     </View>
   );

@@ -1,0 +1,47 @@
+[
+    {
+      "no": 1,
+      "question": "「an error occurred while ～ 」の意味は？",
+      "ex": "An error occurred while connecting to the server.",
+      "answer1": "〜からエラーを見つけました",
+      "answer2": "〜のエラーです",
+      "answer3": "～の最中にエラーが発生しました",
+      "correctAnswer": 3
+    },
+    {
+      "no": 2,
+      "question": "「be greater than ～ 」の意味は？",
+      "ex": "The number must be greater than 0.",
+      "answer1": "～を超える",
+      "answer2": "～より素敵な",
+      "answer3": "～を確かめる",
+      "correctAnswer": 1
+    },
+    {
+        "no": 3,
+        "question": "「～ allow you to …」の意味は？",
+        "ex": "The number must be greater than 0.",
+        "answer1": "～を…に渡します",
+        "answer2": "～を使うと…できます",
+        "answer3": "～は…しようとしています",
+        "correctAnswer": 2
+    },
+    {
+        "no": 4,
+        "question": "「there is a problem with ～」の意味は？",
+        "ex": "There is a problem with your data.",
+        "answer1": "〜と同じ問題があります",
+        "answer2": "～に問題があります",
+        "answer3": "～に問題はありません",
+        "correctAnswer": 2
+    },
+    {
+        "no": 5,
+        "question": "「more than one」の意味は？",
+        "ex": "More than one person is selected.",
+        "answer1": "複数の",
+        "answer2": "このうちの一つ",
+        "answer3": "全て",
+        "correctAnswer": 1
+    }
+]
