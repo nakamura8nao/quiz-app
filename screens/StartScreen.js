@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import { useDispatch } from 'react-redux';
-import { clearAnswer } from '../store/actions/answer'
+import { clearCorrect } from '../store/actions/answer';
 
 const styles = StyleSheet.create({
     container: {
@@ -14,12 +14,13 @@ const styles = StyleSheet.create({
 
 export default function StartScreen(props) {
   const dispatch = useDispatch();
-  dispatch((clearAnswer()));
+  dispatch((clearCorrect()));
   return (
     <View style={styles.container}>
       <Text>エンジニア英語クイズ！</Text>
       <TouchableOpacity
         onPress={() => {
+            dispatch((clearCorrect()));
             props.navigation.navigate('Question', {q: 1});
           }}>
         <Text>はじめる</Text>

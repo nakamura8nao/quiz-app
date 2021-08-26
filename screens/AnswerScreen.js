@@ -1,25 +1,8 @@
 import React from 'react';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
-import { useSelector } from 'react-redux';
 import quizData from '../data/quiz';
-
-export default function AnswerScreen(props) {
-    const answer = useSelector(state => state.answer);
-    const {answers} = answer;
-    const {params} = props.route;
-
-    return (
-        <View style={styles.container}>
-        <Text>正解：{quizData[params['q'] - 1]['answer' + quizData[params['q'] - 1]['correctAnswer']]}</Text>
-        <TouchableOpacity
-            onPress={() => {
-                props.navigation.navigate('Question', {'q': params['q'] + 1});
-            }}>
-            <Text>次の問題</Text>
-        </TouchableOpacity>
-        </View>
-    );
-}
+import { useDispatch } from 'react-redux';
+import { addCorrect } from '../store/actions/answer';
 
 const styles = StyleSheet.create({
   container: {
@@ -29,3 +12,31 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+
+export default function AnswerScreen(props) {
+    const dispatch = useDispatch();
+    const {params} = props.route;
+    let {result} = false;
+
+    if (quizData[params['q'] - 1]['correctAnswer'] === params['a']) {
+      result = true;
+      dispatch((addCorrect()));
+    }
+
+    return (
+        <View style={styles.container}>
+          <Text>{result ? '正解！' : '残念！不正解！'}</Text>
+          <Text>正解：{quizData[params['q'] - 1]['answer' + quizData[params['q'] - 1]['correctAnswer']]}</Text>
+          <TouchableOpacity
+              onPress={() => {
+                  if (params['q'] < 5) {
+                    props.navigation.navigate('Question', {'q': params['q'] + 1});
+                  } else {
+                    props.navigation.navigate('Result');
+                  }
+              }}>
+              <Text>{params['q'] < 5 ? '次の問題' : '結果発表！'}</Text>
+          </TouchableOpacity>
+        </View>
+    );
+}

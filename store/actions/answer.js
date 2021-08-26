@@ -1,12 +1,11 @@
-export const addAnswer = ({answer}) => {
+export const addCorrect = () => {
     return {
-        type: 'ADD_ANSWER',
-        answer: answer,
+        type: 'ADD_CORRECT',
     };
 };
 
-export const clearAnswer = () => {
+export const clearCorrect = () => {
     return {
-        type: 'CLEAR_ANSWER',
+        type: 'CLEAR_CORRECT',
     };
 };

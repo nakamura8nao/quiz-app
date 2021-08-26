@@ -1,23 +1,16 @@
 const inisialState = {
-    answers: []
+    correctCount: 0
 }
 
 const reducer = (state = inisialState, action) => {
     switch (action.type) {
-        case 'ADD_ANSWER':
-
-            const answerList = state['answers'].slice();
-            const answer = Object.assign({}, action['answer']);
-            answerList.push(answer);
-
-            console.log(answerList);
-
+        case 'ADD_CORRECT':
             return {
-                answers: answerList
+                correctCount: state['correctCount'] + 1
             }
-        case 'CLEAR_ANSWER':
+        case 'CLEAR_CORRECT':
             return {
-                answers: []
+                correctCount: 0
             }
         default:
             return state;

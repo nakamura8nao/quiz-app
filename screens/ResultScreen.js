@@ -1,21 +1,6 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>結果!</Text>
-      <StatusBar style="auto" />
-      <TouchableOpacity
-        onPress={() => {
-            props.navigation.navigate('Question', {answer: 1});
-          }}>
-        <Text>次の問題</Text>
-      </TouchableOpacity>
-    </View>
-  );
-}
+import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { useSelector } from 'react-redux';
 
 const styles = StyleSheet.create({
   container: {
@@ -25,3 +10,18 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+
+export default function ResultScreen(props) {
+    const state = useSelector(state => state.answer);
+    return (
+        <View style={styles.container}>
+          <Text>5問中、{state['correctCount']}問正解！</Text>
+          <TouchableOpacity
+              onPress={() => {
+                  props.navigation.navigate('Start');
+              }}>
+              <Text>もう一度やる！</Text>
+          </TouchableOpacity>
+        </View>
+    );
+}
