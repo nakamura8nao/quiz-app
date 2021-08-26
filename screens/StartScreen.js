@@ -10,6 +10,12 @@ const styles = StyleSheet.create({
       alignItems: 'center',
       justifyContent: 'center',
     },
+    button: {
+      color: '#fff',
+      backgroundColor: '#777777',
+      padding: 20,
+      margin: 50,
+    }
   });  
 
 export default function StartScreen(props) {
@@ -23,7 +29,7 @@ export default function StartScreen(props) {
             dispatch((clearCorrect()));
             props.navigation.navigate('Question', {q: 1});
           }}>
-        <Text>はじめる</Text>
+        <Text style={styles.button}>はじめる</Text>
       </TouchableOpacity>
     </View>
   );

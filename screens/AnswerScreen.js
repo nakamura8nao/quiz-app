@@ -11,6 +11,15 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  text: {
+    margin: 20,
+  },
+  button: {
+    color: '#fff',
+    backgroundColor: '#777777',
+    padding: 20,
+    margin: 50,
+  }
 });
 
 export default function AnswerScreen(props) {
@@ -25,8 +34,8 @@ export default function AnswerScreen(props) {
 
     return (
         <View style={styles.container}>
-          <Text>{result ? '正解！' : '残念！不正解！'}</Text>
-          <Text>正解：{quizData[params['q'] - 1]['answer' + quizData[params['q'] - 1]['correctAnswer']]}</Text>
+          <Text style={styles.text}>{result ? '正解！' : '残念！不正解！'}</Text>
+          <Text style={styles.text}>正解：{quizData[params['q'] - 1]['answer' + quizData[params['q'] - 1]['correctAnswer']]}</Text>
           <TouchableOpacity
               onPress={() => {
                   if (params['q'] < 5) {
@@ -35,7 +44,7 @@ export default function AnswerScreen(props) {
                     props.navigation.navigate('Result');
                   }
               }}>
-              <Text>{params['q'] < 5 ? '次の問題' : '結果発表！'}</Text>
+              <Text style={styles.button}>{params['q'] < 5 ? '次の問題' : '結果発表！'}</Text>
           </TouchableOpacity>
         </View>
     );
